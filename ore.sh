@@ -9,7 +9,7 @@ show_menu() {
     echo "请选择一个选项，请用root用户操作："
     echo "1. 一键挖矿"
     echo "2. 查看挖矿状态"
-    echo "3. 显示钱包"
+    echo "3. 显示钱包地址"
     echo "4. 停止挖矿"
     echo "5. 退出"
     echo -n "输入选项 [1-5]: "
