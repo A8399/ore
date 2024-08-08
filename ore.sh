@@ -20,27 +20,16 @@ start_mining() {
     echo "开始一键挖矿..."
     read -p "请输入线程数: " threads
     read -p "请输入GAS费用: " gas
-    read -p "请选择RPC节点（1：默认，2：自定义）" rpc_choice
-    case $rpc_choice in
-        1)
-            rpc_node="http://api.mainnet-beta.solana.com"
-            ;;
-        2)
-            read -p "请输入自定义RPC节点: " rpc_node
-            ;;
-        *)
-            echo "无效的选项，请重试..."
-            exit 1
-            ;;
-    esac
     apt update -y
     apt install screen -y
     pkill -9 screen
     screen -wipe
 
     # Start mining in the background and redirect output to ~/output.log
-    screen -S ore ore --rpc "$rpc_node" --keypair ~/.config/solana/id.json --priority-fee "$gas" mine --threads "$threads"
+    solana-keygen pubkey /root/.config/solana/id.json
+    screen -S ore ore --rpc http://api.mainnet-beta.solana.com --keypair ~/.config/solana/id.json --priority-fee "$gas" mine --threads "$threads"
 }
+
 
 
 # Function to check mining status
