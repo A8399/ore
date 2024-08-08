@@ -1,13 +1,5 @@
 #!/bin/bash
 
-apt update
-apt install curl
-curl https://sh.rustup.rs -sSf | sh
-sh -c "$(curl -sSfL https://release.solana.com/v1.18.4/install)"
-export PATH="/root/.local/share/solana/install/active_release/bin:$PATH"
-cargo install ore-cli
-git clone https://github.com/regolith-labs/ore-cli.git
-cd ore-cli
 # Print the welcome message
 echo "-------自己使用-------"
 
