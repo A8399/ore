@@ -26,7 +26,7 @@ start_mining() {
     screen -wipe
 
     # Start mining in the background and redirect output to ~/output.log
-    screen -S "ore --rpc http://api.mainnet-beta.solana.com --keypair ~/.config/solana/id.json --priority-fee $gas mine --threads $threads"
+    screen -S ore ore --rpc http://api.mainnet-beta.solana.com --keypair ~/.config/solana/id.json --priority-fee "$gas" mine --threads "$threads"
 }
 
 
